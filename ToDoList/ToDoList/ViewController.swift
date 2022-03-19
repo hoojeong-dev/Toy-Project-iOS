@@ -114,9 +114,14 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let task = self.tasks[indexPath.row]
         cell.textLabel?.text = task.title
+        cell.textLabel?.font = UIFont.systemFont(ofSize:18)
         
         if task.done {
             cell.accessoryType = .checkmark
+            // 완료되면 취소선 긋고 글자 색 회색으로!
+            cell.textLabel?.attributedText = cell.textLabel?.text?.strikeThrough()
+            cell.textLabel?.textColor = UIColor.gray
+            
         } else {
             cell.accessoryType = .none
         }
@@ -158,5 +163,14 @@ extension ViewController: UITableViewDelegate {
         task.done = !task.done
         self.tasks[indexPath.row] = task
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+}
+
+// 글자 취소선을 위한 확장 코드
+extension String {
+    func strikeThrough() -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: self)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
     }
 }

@@ -13,7 +13,7 @@
 		55BCF59227E44CC8005025C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BCF59027E44CC8005025C5 /* Main.storyboard */; };
 		55BCF59427E44CCA005025C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BCF59327E44CCA005025C5 /* Assets.xcassets */; };
 		55BCF59727E44CCA005025C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BCF59527E44CCA005025C5 /* LaunchScreen.storyboard */; };
-		55BCF59F27E45387005025C5 /* Tack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF59E27E45387005025C5 /* Tack.swift */; };
+		55BCF59F27E45387005025C5 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCF59E27E45387005025C5 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		55BCF59327E44CCA005025C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55BCF59627E44CCA005025C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55BCF59827E44CCA005025C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55BCF59E27E45387005025C5 /* Tack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tack.swift; sourceTree = "<group>"; };
+		55BCF59E27E45387005025C5 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 				55BCF59327E44CCA005025C5 /* Assets.xcassets */,
 				55BCF59527E44CCA005025C5 /* LaunchScreen.storyboard */,
 				55BCF59827E44CCA005025C5 /* Info.plist */,
-				55BCF59E27E45387005025C5 /* Tack.swift */,
+				55BCF59E27E45387005025C5 /* Task.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -141,7 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55BCF59F27E45387005025C5 /* Tack.swift in Sources */,
+				55BCF59F27E45387005025C5 /* Task.swift in Sources */,
 				55BCF58F27E44CC8005025C5 /* ViewController.swift in Sources */,
 				55BCF58B27E44CC8005025C5 /* AppDelegate.swift in Sources */,
 				55BCF58D27E44CC8005025C5 /* SceneDelegate.swift in Sources */,

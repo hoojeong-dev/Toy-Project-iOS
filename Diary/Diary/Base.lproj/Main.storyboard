@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F8Z-bd-fWp">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="180" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -75,6 +75,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="200"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="Cba-Ab-ftg" id="6NV-IF-qOA"/>
+                                            <outlet property="titleLabel" destination="ile-io-Zru" id="16W-u7-cF8"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -97,16 +101,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="e2e-6A-rOB" id="C57-yR-m3D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-196" y="117"/>
+            <point key="canvasLocation" x="-197.10144927536234" y="116.51785714285714"/>
         </scene>
         <!--일기 작성-->
         <scene sceneID="0jX-LH-lKw">
             <objects>
                 <viewController id="z1M-Yk-XcE" customClass="WriteViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nl3-wg-Rif" customClass="Write">
+                    <view key="view" contentMode="scaleToFill" id="nl3-wg-Rif">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -173,18 +180,28 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="일기 작성" id="A5w-9J-IXN">
-                        <barButtonItem key="rightBarButtonItem" title="등록" id="jn6-gH-Dbm"/>
+                        <barButtonItem key="rightBarButtonItem" title="등록" id="jn6-gH-Dbm">
+                            <connections>
+                                <action selector="tapConfirmButton:" destination="z1M-Yk-XcE" id="B0D-Fy-Fog"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmButton" destination="jn6-gH-Dbm" id="ysA-1u-Ddl"/>
+                        <outlet property="contentsTextView" destination="SOp-UH-XbA" id="FI5-O8-t1w"/>
+                        <outlet property="dateTextField" destination="zxy-GM-xuG" id="sMu-er-yA9"/>
+                        <outlet property="titleTextField" destination="s6U-nZ-Alk" id="350-wU-Hat"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryx-b6-rvU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="617" y="117"/>
         </scene>
-        <!--folder-->
+        <!--일기장-->
         <scene sceneID="Z1F-cS-YYh">
             <objects>
                 <navigationController id="fZt-iC-AY7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="folder" image="folder" catalog="system" selectedImage="folder.fill" id="lsU-FV-Ht6"/>
+                    <tabBarItem key="tabBarItem" title="일기장" image="folder" catalog="system" selectedImage="folder.fill" id="lsU-FV-Ht6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9NC-6x-wXX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

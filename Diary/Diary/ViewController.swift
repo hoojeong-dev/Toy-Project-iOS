@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Diary
 //
-//  Created by 김후정 on 2022/03/22.
-///Users/Hoojeong/Desktop/git-repository/Toy-Project-iOS/Diary/Diary/StarViewController.swift
+//  Created by 김후정 on 2022/03/25.
+//
 
 import UIKit
 
@@ -18,10 +18,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.configureCollectionView()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let writeViewController = segue.destination as? WriteViewController {
-            writeViewController.delegate = self
+        if let writeDiaryViewController = segue.destination as? WriteDiaryViewController {
+            writeDiaryViewController.delegate = self
         }
     }
     
@@ -33,10 +33,18 @@ class ViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        self.collectionView.collectionViewLayout = UICollectionViewLayout()
+        self.collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+    }
+}
+
+extension ViewController: WriteDiaryViewDelegate {
+    func didSelectRegister(diary: Diary) {
+        // 전달받은 diary 객체를 diaryList에 추가
+        self.diaryList.append(diary)
+        self.collectionView.reloadData()
     }
 }
 
@@ -58,13 +66,5 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (UIScreen.main.bounds.width / 2) - 20, height: 200)
-    }
-}
-
-extension ViewController: WriteViewDelegate {
-    func didSelectRegister(diary: Diary) {
-        // 전달받은 diary 객체를 diaryList에 추가
-        self.diaryList.append(diary)
-        self.collectionView.reloadData()
     }
 }

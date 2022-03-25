@@ -1,18 +1,18 @@
 //
-//  WriteViewController.swift
+//  WriteDiaryViewController.swift
 //  Diary
 //
-//  Created by 김후정 on 2022/03/22.
+//  Created by 김후정 on 2022/03/25.
 //
 
 import UIKit
 
 // delegate를 통해 일기장 리스트 화면으로 작성한 일기, 즉 다이어리 객체를 전달
-protocol WriteViewDelegate: AnyObject {
+protocol WriteDiaryViewDelegate: AnyObject {
     func didSelectRegister(diary: Diary)
 }
 
-class WriteViewController: UIViewController {
+class WriteDiaryViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
@@ -25,14 +25,13 @@ class WriteViewController: UIViewController {
     private var diaryDate: Date?
     
     // delegate 프로퍼티 선언
-    weak var delegate: WriteViewDelegate?
+    weak var delegate: WriteDiaryViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureContentsTextView()
         self.configureDatePicker()
         self.configureInputField()
-        
         // 일기 등록 버튼 비활성화 (처음에는 제목, 내용, 날짜 모두 등록이 안 되어있기 때문)
         self.confirmButton.isEnabled = false
     }
@@ -120,7 +119,7 @@ class WriteViewController: UIViewController {
     }
 }
 
-extension WriteViewController: UITextViewDelegate {
+extension WriteDiaryViewController: UITextViewDelegate {
     // 텍스트 뷰에 텍스트가 입력될 때마다 호출되는 메서드
     // 즉, 내용 텍스트 뷰에 입력될 때만 호출됨 (제목과 날짜는 field이므로 부가적으로 구현해야 함)
     func textViewDidChange(_ textView: UITextView) {

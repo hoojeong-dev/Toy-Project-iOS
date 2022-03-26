@@ -83,6 +83,7 @@ class ViewController: UIViewController {
     }
 }
 
+// WriteDiaryViewController 에서 ViewController로 넘어올 때 필요한 익스텐션
 extension ViewController: WriteDiaryViewDelegate {
     func didSelectRegister(diary: Diary) {
         // 전달받은 diary 객체를 diaryList에 추가
@@ -96,6 +97,7 @@ extension ViewController: WriteDiaryViewDelegate {
     }
 }
 
+// 로컬 저장소를 사용하기 위한 익스텐션
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.diaryList.count
@@ -111,8 +113,30 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
+// collection view에 일기를 띄우기 위한 익스텐션
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (UIScreen.main.bounds.width / 2) - 20, height: 200)
+    }
+}
+
+// ViewController에서 DiaryDetailViewController로 넘어갈 때 필요한 익스텐션
+extension ViewController: UICollectionViewDelegate {
+    // 특정 셀이 선택되었음을 알리는 메서드
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DiaryDetailViewController") as? DiaryDetailViewController else { return }
+        let diary = self.diaryList[indexPath.row]
+        viewController.diary = diary
+        viewController.indexPath = indexPath
+        viewController.delegate = self
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+// DiaryDetailViewController에서 삭제를 눌렀을 때 diaryList와 CollectionView에서 삭제하는 익스텐션
+extension ViewController: DiaryDetailViewDelegate {
+    func didSelectDelete(indexPath: IndexPath) {
+        self.diaryList.remove(at: indexPath.row)
+        self.collectionView.deleteItems(at: [indexPath])
     }
 }

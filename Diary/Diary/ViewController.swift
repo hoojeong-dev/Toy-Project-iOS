@@ -23,6 +23,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.configureCollectionView()
         self.loadDiaryList()
+        
+        // 수정 버튼을 눌렀을 때 editDiary Notification을 관찰하는 옵저버 추가
+        // WriteDiaryViewController에서 수정된 객체가 NotificationCenter를 통해서 호스트 될 때 editDiaryNotification 메서드가 호출 됨
+        NotificationCenter.default.addObserver(self, selector: #selector(editDiaryNotification(_:)), name: NSNotification.Name("editDiary"), object: nil)
+    }
+    
+    // NotificationCenter를 통해 수정되었을 때 diaryList를 갱신함
+    @objc func editDiaryNotification(_ notification: Notification) {
+        guard let diary = notification.object as? Diary else { return }
+        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+        self.diaryList[row] = diary
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
+        
+        self.collectionView.reloadData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,6 +46,8 @@ class ViewController: UIViewController {
             writeDiaryViewController.delegate = self
         }
     }
+    
+    
     
     // 일기를 기기 저장소에서 저장하는 메서드
     private func saveDiaryList() {
@@ -83,6 +101,8 @@ class ViewController: UIViewController {
     }
 }
 
+
+
 // WriteDiaryViewController 에서 ViewController로 넘어올 때 필요한 익스텐션
 extension ViewController: WriteDiaryViewDelegate {
     func didSelectRegister(diary: Diary) {
@@ -96,6 +116,8 @@ extension ViewController: WriteDiaryViewDelegate {
         self.collectionView.reloadData()
     }
 }
+
+
 
 // 로컬 저장소를 사용하기 위한 익스텐션
 extension ViewController: UICollectionViewDataSource {
@@ -113,12 +135,16 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
+
+
 // collection view에 일기를 띄우기 위한 익스텐션
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (UIScreen.main.bounds.width / 2) - 20, height: 200)
     }
 }
+
+
 
 // ViewController에서 DiaryDetailViewController로 넘어갈 때 필요한 익스텐션
 extension ViewController: UICollectionViewDelegate {
@@ -132,6 +158,8 @@ extension ViewController: UICollectionViewDelegate {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
+
+
 
 // DiaryDetailViewController에서 삭제를 눌렀을 때 diaryList와 CollectionView에서 삭제하는 익스텐션
 extension ViewController: DiaryDetailViewDelegate {

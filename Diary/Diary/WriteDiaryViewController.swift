@@ -7,6 +7,12 @@
 
 import UIKit
 
+// 신규인지 수정인지를 구별하는 열거형
+enum DiaryEditorMode {
+    case new
+    case edit(IndexPath, Diary)
+}
+
 // delegate를 통해 일기장 리스트 화면으로 작성한 일기, 즉 다이어리 객체를 전달
 protocol WriteDiaryViewDelegate: AnyObject {
     func didSelectRegister(diary: Diary)
@@ -27,6 +33,9 @@ class WriteDiaryViewController: UIViewController {
     // delegate 프로퍼티 선언
     weak var delegate: WriteDiaryViewDelegate?
     
+    // 신규/수정 모드를 저장하는 프로퍼티
+    var diaryEditorMode: DiaryEditorMode = .new
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureContentsTextView()
@@ -34,7 +43,10 @@ class WriteDiaryViewController: UIViewController {
         self.configureInputField()
         // 일기 등록 버튼 비활성화 (처음에는 제목, 내용, 날짜 모두 등록이 안 되어있기 때문)
         self.confirmButton.isEnabled = false
+        self.configureEditMode()
     }
+    
+    
     
     // 등록 버튼을 눌렀을 때 호출되는 메서드
     @IBAction func tapConfirmButton(_ sender: Any) {
@@ -46,8 +58,43 @@ class WriteDiaryViewController: UIViewController {
         
         let diary = Diary(title: title, contents: contents, date: date, isStar: false)
         
-        self.delegate?.didSelectRegister(diary: diary)
+        // NotificationCenter 를 이용해 수정이 일어나면, 수정된 객체를 전달하고 구독하고 있는 화면에 수정된 객체로 갱신함
+        // 등록된 이벤트가 발생하면 해당 이벤트에 대한 행동을 취함
+        // 아무데서나 메시지를 던져도, 아무데서나 받을 수 있음 -> 이벤트 버스같은 역할
+        switch self.diaryEditorMode {
+        case .new:
+            self.delegate?.didSelectRegister(diary: diary)
+            
+        // 이렇게 하면 수정버튼을 눌렀을 때 NotificationCenter가 editDiary라는 Notification 키를 옵저빙하는 곳에 수정된 객체를 전달
+        case let .edit(indexPath, _):
+            NotificationCenter.default.post(name: NSNotification.Name("editDiary"), object: diary, userInfo: ["indexPath.row": indexPath.row])
+        }
+
         self.navigationController?.popViewController(animated: true)
+    }
+    
+
+    
+    // 수정 모드일 때 기존해 작성했던 일기를 띄우고, 수정할 수 있도록 하는 메서드
+    private func configureEditMode() {
+        switch self.diaryEditorMode {
+        case let .edit(_, diary):
+            self.titleTextField.text = diary.title
+            self.contentsTextView.text = diary.contents
+            self.dateTextField.text = self.dateToString(date: diary.date)
+            self.diaryDate = diary.date
+            self.confirmButton.title = "수정"
+        
+        default:
+            break
+        }
+    }
+    
+    private func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yy년 MM월 dd일 (EEEEE)"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter.string(from: date)
     }
     
     

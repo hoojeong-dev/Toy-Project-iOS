@@ -56,17 +56,17 @@ class WriteDiaryViewController: UIViewController {
         guard let contents = self.contentsTextView.text else { return }
         guard let date = self.diaryDate else { return }
         
-        let diary = Diary(title: title, contents: contents, date: date, isStar: false)
-        
         // NotificationCenter 를 이용해 수정이 일어나면, 수정된 객체를 전달하고 구독하고 있는 화면에 수정된 객체로 갱신함
         // 등록된 이벤트가 발생하면 해당 이벤트에 대한 행동을 취함
         // 아무데서나 메시지를 던져도, 아무데서나 받을 수 있음 -> 이벤트 버스같은 역할
         switch self.diaryEditorMode {
         case .new:
+            let diary = Diary(title: title, contents: contents, date: date, isStar: false)
             self.delegate?.didSelectRegister(diary: diary)
             
         // 이렇게 하면 수정버튼을 눌렀을 때 NotificationCenter가 editDiary라는 Notification 키를 옵저빙하는 곳에 수정된 객체를 전달
-        case let .edit(indexPath, _):
+        case let .edit(indexPath, diary):
+            let diary = Diary(title: title, contents: contents, date: date, isStar: diary.isStar)
             NotificationCenter.default.post(name: NSNotification.Name("editDiary"), object: diary, userInfo: ["indexPath.row": indexPath.row])
         }
 

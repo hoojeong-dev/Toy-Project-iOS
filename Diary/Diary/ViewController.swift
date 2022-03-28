@@ -19,6 +19,12 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let writeDiaryViewController = segue.destination as? WriteDiaryViewController {
+            writeDiaryViewController.delegate = self
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureCollectionView()
@@ -27,9 +33,15 @@ class ViewController: UIViewController {
         // 수정 버튼을 눌렀을 때 editDiary Notification을 관찰하는 옵저버 추가
         // WriteDiaryViewController에서 수정된 객체가 NotificationCenter를 통해서 호스트 될 때 editDiaryNotification 메서드가 호출 됨
         NotificationCenter.default.addObserver(self, selector: #selector(editDiaryNotification(_:)), name: NSNotification.Name("editDiary"), object: nil)
+        
+        // 즐겨찾기 버튼을 눌렀을 때 starDiary Notification을 관찰하는 옵저버 추가
+        NotificationCenter.default.addObserver(self, selector: #selector(starDiaryNotification(_:)), name: NSNotification.Name("starDiary"), object: nil)
+        
+        // 삭제 버튼을 눌렀을 때 deleteDiary Notification을 관찰하는 옵저버 추가
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteDiaryNotification(_:)), name: NSNotification.Name("deleteDiary"), object: nil)
     }
     
-    // NotificationCenter를 통해 수정되었을 때 diaryList를 갱신함
+    // 수정 버튼을 눌렀을 때 diaryList를 갱신함
     @objc func editDiaryNotification(_ notification: Notification) {
         guard let diary = notification.object as? Diary else { return }
         guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
@@ -41,10 +53,20 @@ class ViewController: UIViewController {
         self.collectionView.reloadData()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let writeDiaryViewController = segue.destination as? WriteDiaryViewController {
-            writeDiaryViewController.delegate = self
-        }
+    // 즐겨찾기를 눌렀을 때 diaryList를 갱신함
+    @objc func starDiaryNotification(_ notification: Notification) {
+        guard let starDiary = notification.object as? [String: Any] else { return }
+        guard let isStar = starDiary["isStar"] as? Bool else { return }
+        guard let indexPath = starDiary["indexPath"] as? IndexPath else { return }
+        
+        self.diaryList[indexPath.row].isStar = isStar
+    }
+    
+    // 삭제 버튼을 눌렀을 때 diaryList를 갱신함
+    @objc func deleteDiaryNotification(_ notification: Notification) {
+        guard let indexPath = notification.object as? IndexPath else { return }
+        self.diaryList.remove(at: indexPath.row)
+        self.collectionView.deleteItems(at: [indexPath])
     }
     
     
@@ -119,7 +141,7 @@ extension ViewController: WriteDiaryViewDelegate {
 
 
 
-// 로컬 저장소를 사용하기 위한 익스텐션
+// CollectionView에 일기장 목록을 띄우기 위해 셀을 준비하는 익스텐션
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.diaryList.count
@@ -135,8 +157,6 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-
-
 // collection view에 일기를 띄우기 위한 익스텐션
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -146,7 +166,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 
 
-// ViewController에서 DiaryDetailViewController로 넘어갈 때 필요한 익스텐션
+// ViewController에서 DiaryDetailViewController로 넘어가기 위한 익스텐션
 extension ViewController: UICollectionViewDelegate {
     // 특정 셀이 선택되었음을 알리는 메서드
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -154,17 +174,6 @@ extension ViewController: UICollectionViewDelegate {
         let diary = self.diaryList[indexPath.row]
         viewController.diary = diary
         viewController.indexPath = indexPath
-        viewController.delegate = self
         self.navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-
-
-// DiaryDetailViewController에서 삭제를 눌렀을 때 diaryList와 CollectionView에서 삭제하는 익스텐션
-extension ViewController: DiaryDetailViewDelegate {
-    func didSelectDelete(indexPath: IndexPath) {
-        self.diaryList.remove(at: indexPath.row)
-        self.collectionView.deleteItems(at: [indexPath])
     }
 }

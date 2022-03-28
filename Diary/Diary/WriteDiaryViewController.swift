@@ -61,13 +61,14 @@ class WriteDiaryViewController: UIViewController {
         // 아무데서나 메시지를 던져도, 아무데서나 받을 수 있음 -> 이벤트 버스같은 역할
         switch self.diaryEditorMode {
         case .new:
-            let diary = Diary(title: title, contents: contents, date: date, isStar: false)
+            // 일기를 생성할 때마다 UUID().uuidString를 사용해 uuid 값 부여
+            let diary = Diary(uuidString: UUID().uuidString,title: title, contents: contents, date: date, isStar: false)
             self.delegate?.didSelectRegister(diary: diary)
             
         // 이렇게 하면 수정버튼을 눌렀을 때 NotificationCenter가 editDiary라는 Notification 키를 옵저빙하는 곳에 수정된 객체를 전달
         case let .edit(indexPath, diary):
-            let diary = Diary(title: title, contents: contents, date: date, isStar: diary.isStar)
-            NotificationCenter.default.post(name: NSNotification.Name("editDiary"), object: diary, userInfo: ["indexPath.row": indexPath.row])
+            let diary = Diary(uuidString: diary.uuidString, title: title, contents: contents, date: date, isStar: diary.isStar)
+            NotificationCenter.default.post(name: NSNotification.Name("editDiary"), object: diary, userInfo: nil)
         }
 
         self.navigationController?.popViewController(animated: true)

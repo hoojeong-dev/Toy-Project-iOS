@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var toggleButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     // 타이머에 설정된 시간을 초로 저장하는 프로퍼티
     var duration = 60
@@ -69,6 +70,14 @@ class ViewController: UIViewController {
                 // progressView는 1이 최대, 0이 최소
                 self.progressView.progress = Float(self.currentSeconds) / Float(self.duration)
                 
+                // 이미지 애니메이션
+                UIView.animate(withDuration: 0.5, delay: 0, animations: {
+                    self.imageView.transform = CGAffineTransform(rotationAngle: .pi)
+                })
+                UIView.animate(withDuration: 0.5, delay: 0.5, animations: {
+                    self.imageView.transform = CGAffineTransform(rotationAngle: .pi * 2)
+                })
+                
                 // 타이머의 시간이 다 되었을 경우
                 if self.currentSeconds <= 0 {
                     self.stopTimer()
@@ -93,8 +102,15 @@ class ViewController: UIViewController {
         
         self.timerStatus = .end
         self.cancelButton.isEnabled = false
-        self.setTimerInfoViewVisvle(isHidden: true)
-        self.datePicker.isHidden = false
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.timerLabel.alpha = 0
+            self.progressView.alpha = 0
+            self.datePicker.alpha = 1
+            
+            self.imageView.transform = .identity
+        })
+        
         self.toggleButton.isSelected = false
         self.timer?.cancel()
         
@@ -116,9 +132,13 @@ class ViewController: UIViewController {
         case .end:
             self.currentSeconds = self.duration
             self.timerStatus = .start
-            // 타이머가 끝났다면, timerLabel, progressView를 안 보이게 하고, datePicker를 보이게 변경
-            self.setTimerInfoViewVisvle(isHidden: false)
-            self.datePicker.isHidden = true
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.timerLabel.alpha = 1
+                self.progressView.alpha = 1
+                self.datePicker.alpha = 0
+            })
+            
             self.toggleButton.isSelected = true
             self.cancelButton.isEnabled = true
             self.startTimer()
@@ -135,12 +155,6 @@ class ViewController: UIViewController {
         }
     }
     
-    // 타이머의 상태에 따라 timerLabel, progressView를 보이게/안 보이게 하는 메서드
-    func setTimerInfoViewVisvle(isHidden: Bool) {
-        self.timerLabel.isHidden = isHidden
-        self.progressView.isHidden = isHidden
-    }
-    
     
     
     // 취소 버튼을 눌렀을 때 호출되는 메서드
@@ -154,4 +168,3 @@ class ViewController: UIViewController {
         }
     }
 }
-

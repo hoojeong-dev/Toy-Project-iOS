@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 enum TimerStatus {
     case start
@@ -56,12 +57,25 @@ class ViewController: UIViewController {
             self.timer = DispatchSource.makeTimerSource(flags: [], queue: .main)
             self.timer?.schedule(deadline: .now(), repeating: 1)
             self.timer?.setEventHandler(handler: { [weak self] in
-                self?.currentSeconds -= 1
-                debugPrint(self?.currentSeconds)
+                guard let self = self else { return }
+                self.currentSeconds -= 1
+                
+                let hour = self.currentSeconds / 3600
+                let minutes = (self.currentSeconds % 3600) / 60
+                let seconds = (self.currentSeconds % 3600) % 60
+                
+                self.timerLabel.text = String(format: "%02d:%02d:%02d", hour, minutes, seconds)
+                
+                // progressView는 1이 최대, 0이 최소
+                self.progressView.progress = Float(self.currentSeconds) / Float(self.duration)
                 
                 // 타이머의 시간이 다 되었을 경우
-                if self?.currentSeconds ?? 0 <= 0 {
-                    self?.stopTimer()
+                if self.currentSeconds <= 0 {
+                    self.stopTimer()
+                    
+                    // 시간이 다 되어 종료할 때 알람
+                    // SoundID는 http://iphonedev.wiki/index.php/AudioServices.wiki 에서 확인하기
+                    AudioServicesPlaySystemSound(1005)
                 }
             })
             

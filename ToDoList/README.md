@@ -63,10 +63,10 @@ self.present(alert, animated: true, completion: nil)
 
 ## *Demo*
 
-<img src="./asset/toDoList.GIF" height="500px" width="250px" align="left">
+<p align="left"><img src="./asset/toDoList.GIF" height="500px" width="250px"><p>
 
 ---
 
 ## *변경사항*
 
-__03.19__ 할일 완료 시 글자 색 변경 및 취소선
+__03.19__  할일 완료 시 글자 색 변경 및 취소선

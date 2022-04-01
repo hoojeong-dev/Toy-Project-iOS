@@ -398,4 +398,57 @@
             <point key="canvasLocation" x="132" y="117"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="2Ki-Jj-H7c">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="6VI-c8-q9R">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="7yW-pd-ln6">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="8w2-nx-Zy9">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="AqV-v8-THf">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="BLh-V1-TQU">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="DYc-yG-hn5">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="IfC-Zu-lL7">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="Pww-hx-WB6">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="XkA-Og-t4E">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="YhF-Cz-NC5">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="eHM-1u-z8T">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="fIY-HT-axa">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="rUh-9g-xdH">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="sHc-Ia-NtN">
+            <size key="intrinsicContentSize" width="41" height="48"/>
+        </designable>
+        <designable name="w3I-Ci-cWR">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+        <designable name="xxt-dK-xpq">
+            <size key="intrinsicContentSize" width="30" height="48"/>
+        </designable>
+    </designables>
 </document>

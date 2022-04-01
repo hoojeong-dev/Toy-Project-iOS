@@ -14,6 +14,7 @@
 		5533B3FB27F423D1004F6398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5533B3FA27F423D1004F6398 /* Assets.xcassets */; };
 		5533B3FE27F423D1004F6398 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5533B3FC27F423D1004F6398 /* LaunchScreen.storyboard */; };
 		553BFC7F27F5F1F9001B1712 /* WeatherInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BFC7E27F5F1F9001B1712 /* WeatherInformation.swift */; };
+		556C143B27F6D684000D7DF2 /* ErrorMessagr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C143A27F6D684000D7DF2 /* ErrorMessagr.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5533B3FD27F423D1004F6398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5533B3FF27F423D1004F6398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553BFC7E27F5F1F9001B1712 /* WeatherInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInformation.swift; sourceTree = "<group>"; };
+		556C143A27F6D684000D7DF2 /* ErrorMessagr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessagr.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				5533B3FC27F423D1004F6398 /* LaunchScreen.storyboard */,
 				5533B3FF27F423D1004F6398 /* Info.plist */,
 				553BFC7E27F5F1F9001B1712 /* WeatherInformation.swift */,
+				556C143A27F6D684000D7DF2 /* ErrorMessagr.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5533B3F627F423D0004F6398 /* ViewController.swift in Sources */,
+				556C143B27F6D684000D7DF2 /* ErrorMessagr.swift in Sources */,
 				553BFC7F27F5F1F9001B1712 /* WeatherInformation.swift in Sources */,
 				5533B3F227F423D0004F6398 /* AppDelegate.swift in Sources */,
 				5533B3F427F423D0004F6398 /* SceneDelegate.swift in Sources */,

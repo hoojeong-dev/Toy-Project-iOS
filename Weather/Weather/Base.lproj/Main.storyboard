@@ -22,9 +22,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsh-v1-N5Q">
-                                <rect key="frame" x="157" y="132" width="100.5" height="31"/>
+                                <rect key="frame" x="155.5" y="132" width="103" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="날씨 가져오기"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Get weather"/>
                                 <connections>
                                     <action selector="tapFetchWeatherButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="40X-mX-Bo5"/>
                                 </connections>
@@ -100,6 +100,7 @@
                         <outlet property="minTempLabel" destination="Pct-tb-C8M" id="GJK-sl-SWX"/>
                         <outlet property="tempLabel" destination="tea-KH-ANn" id="33F-87-FQT"/>
                         <outlet property="weatherDescriptionLabel" destination="ZCy-Go-TXm" id="tVD-6A-GH2"/>
+                        <outlet property="weatherStackView" destination="ihN-hp-ZWM" id="Wxc-Ih-DHD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -19,11 +19,7 @@ TableView를 사용하여 추가한 일정을 각 셀에 등록하고, UserDefau
 
 다음은 UserDefaults를 사용하여 디바이스 저장소에 저장하는 예제입니다.
 ```swift
-var tasks = [Task]() {
-    didSet {
-        self.saveTasks()
-    }
-}
+var tasks = [Task]()
 
 let data = self.tasks.map {
 [

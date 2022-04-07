@@ -14,11 +14,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalCaseLabel: UILabel!
     @IBOutlet weak var newCaseLabel: UILabel!
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var labelStackView: UIStackView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.indicatorView.startAnimating()
+        
         self.fetchCovidOverview(completionHandler: { [weak self] result in
             guard let self = self else { return }
+            
+            self.indicatorView.stopAnimating()
+            self.indicatorView.isHidden = true
+            self.labelStackView.isHidden = false
+            self.pieChartView.isHidden = false
             
             switch result {
             case let .success(result):
@@ -74,6 +83,7 @@ class ViewController: UIViewController {
     
     // pieChart 구성 메서드
     func configureChartView(covidOverviewList: [CovidOverView]) {
+        self.pieChartView.delegate = self
         // 표시할 도시 데이터를 pieChart 데이터 엔트리 객체로 매핑
         let entries = covidOverviewList.compactMap { [weak self] overview -> PieChartDataEntry? in
             guard let self = self else { return nil }
@@ -81,7 +91,7 @@ class ViewController: UIViewController {
             return PieChartDataEntry(value: self.removeFormatString(string: overview.newCase), label: overview.countryName, data: overview)
         }
         
-        let dataSet = PieChartDataSet(entries: entries, label: "코로나 발생 현황")
+        let dataSet = PieChartDataSet(entries: entries, label: "")
         
         dataSet.sliceSpace = 1
         dataSet.entryLabelColor = .black
@@ -130,3 +140,12 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: ChartViewDelegate {
+    // 차트에서 항목을 선택했을 때 호출되는 메서드
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        guard let covidDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "CovidDetailViewController") as? CovidDetailViewController else { return }
+        guard let covidOverview = entry.data as? CovidOverView else { return }
+        covidDetailViewController.covidOverview = covidOverview
+        self.navigationController?.pushViewController(covidDetailViewController, animated: true)
+    }
+}

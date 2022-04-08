@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     ) {
         let url = "https://api.corona-19.kr/korea/country/new/"
         let param = [
-            "serviceKey": "covid-api-key"
+            "serviceKey": "tIjHXv5SbRLw2pgy7uZxNdMBszOheAE69"
         ]
         
         AF.request(url, method: .get, parameters: param)

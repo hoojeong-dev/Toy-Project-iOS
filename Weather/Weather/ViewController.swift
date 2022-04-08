@@ -16,9 +16,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var weatherStackView: UIStackView!
+    @IBOutlet weak var indicateView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.indicateView.isHidden = true
     }
 
     // 날씨 가져오기 버튼을 눌렀을 때 호출되는 메서드
@@ -32,6 +34,9 @@ class ViewController: UIViewController {
     
     // api에 연결하여 데이터를 가져오는 메서드
     func getCurrentWeather(cityName: String) {
+        self.indicateView.isHidden = false
+        self.indicateView.startAnimating()
+        
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=3d58ff1b86071e2cd388fb7654328507") else { return }
         let session = URLSession(configuration: .default)
         session.dataTask(with: url) { [weak self] data, response, error in
@@ -43,6 +48,9 @@ class ViewController: UIViewController {
             if let response = response as? HTTPURLResponse, successRange.contains(response.statusCode){
                 guard let weatherInformation = try? decoder.decode(WeatherInformation.self, from: data) else { return }
                 DispatchQueue.main.async {
+                    self?.indicateView.stopAnimating()
+                    self?.indicateView.isHidden = true
+                    
                     self?.weatherStackView.isHidden = false
                     self?.configureView(weatherInformation: weatherInformation)
                 }
@@ -50,6 +58,9 @@ class ViewController: UIViewController {
             } else {
                 guard let errorMessage = try? decoder.decode(ErrorMessage.self, from: data) else { return }
                 DispatchQueue.main.async {
+                    self?.indicateView.stopAnimating()
+                    self?.indicateView.isHidden = true
+                    
                     self?.showAlert(message: errorMessage.message)
                 }
             }

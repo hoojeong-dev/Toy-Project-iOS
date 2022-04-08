@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,8 +30,11 @@
                                     <action selector="tapFetchWeatherButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="40X-mX-Bo5"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="n33-vO-fq3">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ihN-hp-ZWM">
-                                <rect key="frame" x="24" y="213" width="366" height="143.5"/>
+                                <rect key="frame" x="24" y="377" width="366" height="143.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ald-vV-UIS">
                                         <rect key="frame" x="161.5" y="0.0" width="43.5" height="62"/>
@@ -83,19 +87,24 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="n33-vO-fq3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Xt-kL-a39"/>
                             <constraint firstItem="zmt-R7-DKB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="BTi-mE-CYz"/>
-                            <constraint firstItem="ihN-hp-ZWM" firstAttribute="top" secondItem="gsh-v1-N5Q" secondAttribute="bottom" constant="50" id="JqS-pR-LsY"/>
+                            <constraint firstItem="ihN-hp-ZWM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KwY-y3-Y6p"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zmt-R7-DKB" secondAttribute="trailing" constant="24" id="Lua-Fe-DGo"/>
+                            <constraint firstItem="ihN-hp-ZWM" firstAttribute="top" secondItem="gsh-v1-N5Q" secondAttribute="bottom" constant="214" id="NKy-xr-Q6H"/>
                             <constraint firstItem="gsh-v1-N5Q" firstAttribute="top" secondItem="zmt-R7-DKB" secondAttribute="bottom" constant="24" id="Unr-U9-4cq"/>
                             <constraint firstItem="zmt-R7-DKB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="ZiU-9z-VEl"/>
+                            <constraint firstItem="n33-vO-fq3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lVb-dD-8Ly"/>
                             <constraint firstItem="gsh-v1-N5Q" firstAttribute="centerX" secondItem="zmt-R7-DKB" secondAttribute="centerX" id="lZV-4N-tFr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ihN-hp-ZWM" secondAttribute="trailing" constant="24" id="qNc-m2-J9P"/>
+                            <constraint firstItem="ihN-hp-ZWM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v5U-UB-tnG"/>
                             <constraint firstItem="ihN-hp-ZWM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="xwb-ki-ZOy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cityNameLabel" destination="FU3-zh-Iqf" id="wqQ-aI-c2W"/>
                         <outlet property="cityNameTextField" destination="zmt-R7-DKB" id="vIj-Yc-fLJ"/>
+                        <outlet property="indicateView" destination="n33-vO-fq3" id="S52-Df-r7d"/>
                         <outlet property="maxTempLabel" destination="xpM-UI-tew" id="Py3-Fe-PfI"/>
                         <outlet property="minTempLabel" destination="Pct-tb-C8M" id="GJK-sl-SWX"/>
                         <outlet property="tempLabel" destination="tea-KH-ANn" id="33F-87-FQT"/>

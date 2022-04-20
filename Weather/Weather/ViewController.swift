@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherStackView: UIStackView!
     @IBOutlet weak var indicateView: UIActivityIndicatorView!
     
+    var apiKey : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.indicateView.isHidden = true
@@ -37,7 +39,7 @@ class ViewController: UIViewController {
         self.indicateView.isHidden = false
         self.indicateView.startAnimating()
         
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=3d58ff1b86071e2cd388fb7654328507") else { return }
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(apiKey)") else { return }
         let session = URLSession(configuration: .default)
         session.dataTask(with: url) { [weak self] data, response, error in
             let successRange = (200..<300)

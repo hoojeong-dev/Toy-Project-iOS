@@ -83,7 +83,7 @@ class ViewController: UIViewController {
                     self.stopTimer()
                     
                     // 시간이 다 되어 종료할 때 알람
-                    // SoundID는 http://iphonedev.wiki/index.php/AudioServices.wiki 에서 확인하기
+                    // SoundID는 http://iphonedev.wiki/index.php/AudioServices 에서 확인하기
                     AudioServicesPlaySystemSound(1005)
                 }
             })

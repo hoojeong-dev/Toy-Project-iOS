@@ -59,11 +59,12 @@ progressView.progress = Float(self.currentSeconds) / Float(self.duration)
 </br>
 
 ## *Demo*
+
 <p align="center"><img src="./asset/pomodoroTimer1.GIF" height="500px" width="250px"><p>
-<center>타이머 시작</center>
+<div style="text-align: center">타이머 시작</div>
 </br>
 <p align="center"><img src="./asset/pomodoroTimer2.GIF" height="500px" width="250px"><p>
-<center>타이머 실행 중 일시정지 -> 재시작</center>
+<div style="text-align: center">타이머 실행 중 일시정지 -> 재시작</div>
 </br>
 <p align="center"><img src="./asset/pomodoroTimer3.GIF" height="500px" width="250px"><p>
-<center>타이머 종료 (소리 알람)</center>
+<div style="text-align: center">타이머 종료 (소리 알람)</div>

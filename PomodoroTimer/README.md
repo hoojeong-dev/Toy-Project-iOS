@@ -62,6 +62,8 @@ progressView.progress = Float(self.currentSeconds) / Float(self.duration)
 
 <p align="center">
     <img src="./asset/pomodoroTimer1.GIF" height="500px" width="250px" alt="타이머 시작" />
+</p>
+<p align="center">
     <em>타이머 시작</em>
 </p>
 

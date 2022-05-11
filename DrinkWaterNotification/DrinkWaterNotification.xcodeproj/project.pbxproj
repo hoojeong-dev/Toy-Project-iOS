@@ -16,6 +16,8 @@
 		55EF4957285074AC00481194 /* AlertTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF4956285074AC00481194 /* AlertTableViewController.swift */; };
 		55EF49592850758E00481194 /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF49582850758E00481194 /* AlertTableViewCell.swift */; };
 		55EF495B285075DA00481194 /* AlertTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55EF495A285075DA00481194 /* AlertTableViewCell.xib */; };
+		55EF495D28507B6000481194 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF495C28507B6000481194 /* Alert.swift */; };
+		55EF495F28508A2800481194 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF495E28508A2800481194 /* UNUserNotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		55EF4956285074AC00481194 /* AlertTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewController.swift; sourceTree = "<group>"; };
 		55EF49582850758E00481194 /* AlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
 		55EF495A285075DA00481194 /* AlertTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertTableViewCell.xib; sourceTree = "<group>"; };
+		55EF495C28507B6000481194 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		55EF495E28508A2800481194 /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				55EF4956285074AC00481194 /* AlertTableViewController.swift */,
 				55EF49582850758E00481194 /* AlertTableViewCell.swift */,
 				55EF495A285075DA00481194 /* AlertTableViewCell.xib */,
+				55EF495C28507B6000481194 /* Alert.swift */,
+				55EF495E28508A2800481194 /* UNUserNotificationCenter.swift */,
 			);
 			path = DrinkWaterNotification;
 			sourceTree = "<group>";
@@ -148,6 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55EF495D28507B6000481194 /* Alert.swift in Sources */,
+				55EF495F28508A2800481194 /* UNUserNotificationCenter.swift in Sources */,
 				55EF4957285074AC00481194 /* AlertTableViewController.swift in Sources */,
 				55EF49412850736500481194 /* AppDelegate.swift in Sources */,
 				55EF49432850736500481194 /* SceneDelegate.swift in Sources */,

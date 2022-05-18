@@ -70,7 +70,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fe8-xA-C0m">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="알람 설정" id="Cq6-3W-PIf">
+                                    <navigationItem title="알람 추가" id="Cq6-3W-PIf">
                                         <barButtonItem key="leftBarButtonItem" title="취소" id="Jkl-Mp-FUb">
                                             <connections>
                                                 <action selector="tapCancelButton:" destination="Uf6-aK-XWr" id="v3c-ju-94f"/>
@@ -87,8 +87,8 @@
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="HQ1-8n-HGO">
                                 <rect key="frame" x="0.0" y="108" width="414" height="216"/>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxD-hp-feV">
-                                <rect key="frame" x="60" y="364" width="294" height="31"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxD-hp-feV">
+                                <rect key="frame" x="40" y="364" width="334" height="31"/>
                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="삭제하기"/>
@@ -101,14 +101,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HQ1-8n-HGO" firstAttribute="top" secondItem="Fe8-xA-C0m" secondAttribute="bottom" constant="20" id="DbX-yb-MLp"/>
-                            <constraint firstItem="mBP-cL-QXR" firstAttribute="trailing" secondItem="bxD-hp-feV" secondAttribute="trailing" constant="60" id="G9H-NQ-oJ7"/>
+                            <constraint firstItem="mBP-cL-QXR" firstAttribute="trailing" secondItem="bxD-hp-feV" secondAttribute="trailing" constant="40" id="G9H-NQ-oJ7"/>
                             <constraint firstItem="Fe8-xA-C0m" firstAttribute="top" secondItem="mBP-cL-QXR" secondAttribute="top" id="IsQ-4K-a6R"/>
                             <constraint firstAttribute="trailing" secondItem="HQ1-8n-HGO" secondAttribute="trailing" id="M2f-Pn-X3d"/>
                             <constraint firstAttribute="trailing" secondItem="Fe8-xA-C0m" secondAttribute="trailing" id="Nsl-DD-EYB"/>
                             <constraint firstItem="Fe8-xA-C0m" firstAttribute="leading" secondItem="mBP-cL-QXR" secondAttribute="leading" id="O00-w4-6wl"/>
                             <constraint firstItem="HQ1-8n-HGO" firstAttribute="leading" secondItem="mBP-cL-QXR" secondAttribute="leading" id="Twk-3k-MSW"/>
                             <constraint firstItem="bxD-hp-feV" firstAttribute="top" secondItem="HQ1-8n-HGO" secondAttribute="bottom" constant="40" id="ZH1-CC-LVl"/>
-                            <constraint firstItem="bxD-hp-feV" firstAttribute="leading" secondItem="mBP-cL-QXR" secondAttribute="leading" constant="60" id="yw2-Q9-AIe"/>
+                            <constraint firstItem="bxD-hp-feV" firstAttribute="leading" secondItem="mBP-cL-QXR" secondAttribute="leading" constant="40" id="yw2-Q9-AIe"/>
                         </constraints>
                     </view>
                     <connections>

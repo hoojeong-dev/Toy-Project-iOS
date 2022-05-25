@@ -13,6 +13,10 @@
 		5512A1182856FC5900593A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5512A1172856FC5900593A69 /* Assets.xcassets */; };
 		5512A11B2856FC5900593A69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5512A1192856FC5900593A69 /* LaunchScreen.storyboard */; };
 		5512A1232856FCFD00593A69 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512A1222856FCFD00593A69 /* HomeViewController.swift */; };
+		5512A12528570D9000593A69 /* Content.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5512A12428570D9000593A69 /* Content.plist */; };
+		5512A12728570DB700593A69 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512A12628570DB700593A69 /* Content.swift */; };
+		5512A1292857119A00593A69 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512A1282857119A00593A69 /* ContentCollectionViewCell.swift */; };
+		5512A12B2857146E00593A69 /* ContentCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512A12A2857146E00593A69 /* ContentCollectionViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		5512A11A2856FC5900593A69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5512A11C2856FC5900593A69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5512A1222856FCFD00593A69 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5512A12428570D9000593A69 /* Content.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Content.plist; path = "../../../../패스트캠퍼스/Swift/part3. intermediate/Ch6_NetflixStyle/Content.plist"; sourceTree = "<group>"; };
+		5512A12628570DB700593A69 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		5512A1282857119A00593A69 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		5512A12A2857146E00593A69 /* ContentCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewHeader.swift; sourceTree = "<group>"; };
 		66EF3E71DA270EF215340C68 /* Pods-NetflixStyleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixStyleApp.debug.xcconfig"; path = "Target Support Files/Pods-NetflixStyleApp/Pods-NetflixStyleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		69BA7469CC060F6E40855518 /* Pods-NefliexStyleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NefliexStyleApp.debug.xcconfig"; path = "Target Support Files/Pods-NefliexStyleApp/Pods-NefliexStyleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		70B4CEDF3A50001BD8D824DC /* Pods-NetflixStyleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixStyleApp.release.xcconfig"; path = "Target Support Files/Pods-NetflixStyleApp/Pods-NetflixStyleApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,12 +71,16 @@
 		5512A10D2856FC5600593A69 /* NetflixStyleApp */ = {
 			isa = PBXGroup;
 			children = (
+				5512A12428570D9000593A69 /* Content.plist */,
 				5512A10E2856FC5600593A69 /* AppDelegate.swift */,
 				5512A1102856FC5600593A69 /* SceneDelegate.swift */,
 				5512A1172856FC5900593A69 /* Assets.xcassets */,
 				5512A1192856FC5900593A69 /* LaunchScreen.storyboard */,
 				5512A11C2856FC5900593A69 /* Info.plist */,
 				5512A1222856FCFD00593A69 /* HomeViewController.swift */,
+				5512A12628570DB700593A69 /* Content.swift */,
+				5512A1282857119A00593A69 /* ContentCollectionViewCell.swift */,
+				5512A12A2857146E00593A69 /* ContentCollectionViewHeader.swift */,
 			);
 			path = NetflixStyleApp;
 			sourceTree = "<group>";
@@ -154,6 +166,7 @@
 			files = (
 				5512A11B2856FC5900593A69 /* LaunchScreen.storyboard in Resources */,
 				5512A1182856FC5900593A69 /* Assets.xcassets in Resources */,
+				5512A12528570D9000593A69 /* Content.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,8 +220,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5512A10F2856FC5600593A69 /* AppDelegate.swift in Sources */,
+				5512A12B2857146E00593A69 /* ContentCollectionViewHeader.swift in Sources */,
 				5512A1112856FC5600593A69 /* SceneDelegate.swift in Sources */,
 				5512A1232856FCFD00593A69 /* HomeViewController.swift in Sources */,
+				5512A12728570DB700593A69 /* Content.swift in Sources */,
+				5512A1292857119A00593A69 /* ContentCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +366,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KAUKJL57T4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NefliexStyleApp/Info.plist;
+				INFOPLIST_FILE = NetflixStyleApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NetflixStyleApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -379,7 +395,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KAUKJL57T4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NefliexStyleApp/Info.plist;
+				INFOPLIST_FILE = NetflixStyleApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NetflixStyleApp;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

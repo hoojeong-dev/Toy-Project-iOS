@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-1352" y="-95"/>
         </scene>
-        <!--Alert Table View Controller-->
+        <!--물마시기-->
         <scene sceneID="IWI-0V-4MZ">
             <objects>
                 <tableViewController storyboardIdentifier="AlertTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pW2-2Z-kb3" customClass="AlertTableViewController" customModule="DrinkWaterNotification" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,12 +47,7 @@
                             <outlet property="delegate" destination="pW2-2Z-kb3" id="6u8-I5-GwQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="SFb-Vm-aaY">
-                        <barButtonItem key="leftBarButtonItem" title="편집" id="tUy-sH-IBz">
-                            <connections>
-                                <action selector="tapEditAlertButton:" destination="pW2-2Z-kb3" id="eka-PT-UTC"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="물마시기" id="SFb-Vm-aaY">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="yiG-qt-hEW">
                             <connections>
                                 <action selector="tapAddAlertButton:" destination="pW2-2Z-kb3" id="sDz-2I-WFr"/>
@@ -92,20 +87,34 @@
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="HQ1-8n-HGO">
                                 <rect key="frame" x="0.0" y="108" width="414" height="216"/>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxD-hp-feV">
+                                <rect key="frame" x="60" y="364" width="294" height="31"/>
+                                <color key="tintColor" systemColor="systemBlueColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="삭제하기"/>
+                                <connections>
+                                    <action selector="tapRemoveButton:" destination="Uf6-aK-XWr" eventType="touchUpInside" id="KRe-Xz-TiW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mBP-cL-QXR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HQ1-8n-HGO" firstAttribute="top" secondItem="Fe8-xA-C0m" secondAttribute="bottom" constant="20" id="DbX-yb-MLp"/>
+                            <constraint firstItem="mBP-cL-QXR" firstAttribute="trailing" secondItem="bxD-hp-feV" secondAttribute="trailing" constant="60" id="G9H-NQ-oJ7"/>
                             <constraint firstItem="Fe8-xA-C0m" firstAttribute="top" secondItem="mBP-cL-QXR" secondAttribute="top" id="IsQ-4K-a6R"/>
                             <constraint firstAttribute="trailing" secondItem="HQ1-8n-HGO" secondAttribute="trailing" id="M2f-Pn-X3d"/>
                             <constraint firstAttribute="trailing" secondItem="Fe8-xA-C0m" secondAttribute="trailing" id="Nsl-DD-EYB"/>
                             <constraint firstItem="Fe8-xA-C0m" firstAttribute="leading" secondItem="mBP-cL-QXR" secondAttribute="leading" id="O00-w4-6wl"/>
                             <constraint firstItem="HQ1-8n-HGO" firstAttribute="leading" secondItem="mBP-cL-QXR" secondAttribute="leading" id="Twk-3k-MSW"/>
+                            <constraint firstItem="bxD-hp-feV" firstAttribute="top" secondItem="HQ1-8n-HGO" secondAttribute="bottom" constant="40" id="ZH1-CC-LVl"/>
+                            <constraint firstItem="bxD-hp-feV" firstAttribute="leading" secondItem="mBP-cL-QXR" secondAttribute="leading" constant="60" id="yw2-Q9-AIe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="HQ1-8n-HGO" id="qVy-gX-CDM"/>
+                        <outlet property="removeAlertButton" destination="bxD-hp-feV" id="gg3-RE-Nzj"/>
+                        <outlet property="titleNavigationBar" destination="Fe8-xA-C0m" id="0y1-NP-O3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJk-Sv-WTa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -116,6 +125,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -31,8 +31,8 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleSignIn (5.0.2):
-    - AppAuth (~> 1.2)
+  - GoogleSignIn (6.0.2):
+    - AppAuth (~> 1.4)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleUtilities/AppDelegateSwizzler (7.7.0):
@@ -63,7 +63,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Auth
-  - GoogleSignIn (= 5.0.2)
+  - GoogleSignIn (= 6.0.2)
 
 SPEC REPOS:
   trunk:
@@ -89,13 +89,13 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 2dabba3412b23b524823325739f45e520f67d1e7
   FirebaseCoreInternal: f3c838ae0b41cd840bbf34f90debfede78d352e5
   GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
-  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GoogleSignIn: fd381840dbe7c1137aa6dc30849a5c3e070c034a
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GTMAppAuth: 4d8f864896f3646f0c33baf38a28362f4c601e15
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
 
-PODFILE CHECKSUM: 79da319381c8c9df50b0e96bd67a474dc419d23b
+PODFILE CHECKSUM: 629f19e676f0ced8ad7aa6a987cc86d07a5b5491
 
 COCOAPODS: 1.11.3

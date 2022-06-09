@@ -30,7 +30,18 @@ class AlertTableViewController: UITableViewController {
     }
 
     @objc func editAlertNotification(_ notification: Notification) {
+        guard let alert = notification.object as? Alert else { return }
+        guard let index = self.alerts.firstIndex(where: { $0.id == alert.id }) else { return }
+        var alertList = self.alertList()
         
+        alertList[index] = alert
+        
+        alertList.sort { $0.date < $1.date }
+        self.alerts = alertList
+        
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(self.alerts), forKey: "alerts")
+        
+        self.tableView.reloadData()
     }
     
     @objc func deleteAlertNotification(_ notification: Notification) {
@@ -81,6 +92,8 @@ extension AlertTableViewController {
         cell.alertSwitch.isOn = alerts[indexPath.row].isOn
         cell.timeLabel.text = alerts[indexPath.row].time
         cell.meridiemLabel.text = alerts[indexPath.row].meridiem
+        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
         

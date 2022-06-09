@@ -21,13 +21,7 @@ class AddAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configureView()
         self.configureEditMode()
-    }
-    
-    private func configureView() {
-        self.navigationItem.title = "알람 추가"
-        self.removeAlertButton.isHidden = false
     }
     
     private func configureEditMode() {
@@ -35,8 +29,8 @@ class AddAlertViewController: UIViewController {
         case let .edit(_, alert):
             self.id = alert.id
             // datepicker에 나타나는 시간을 기존에 저장한 시간으로 바꾸는 코드 추가
-            self.navigationItem.title = "알람 추가"
-            self.removeAlertButton.isHidden = true
+            self.titleNavigationBar.topItem?.title = "알람 설정"
+            self.removeAlertButton.isHidden = false
         
         default:
             break

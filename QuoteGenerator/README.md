@@ -9,5 +9,5 @@
 ## *Demo*
 
 <p align="center">
-    <img src="./asset/quoteGenerator.GIF" height="500px" width="250px" />
+    <img src="./asset/quoteGenerator.GIF" height="40%" width="250px" />
 </p>

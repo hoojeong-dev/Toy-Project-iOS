@@ -101,4 +101,4 @@ guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\
 
 ## *Demo*
 
-<p align="center"><img src="./asset/weather.GIF" height="500px" width="250px"><p>
+<p align="center"><img src="./asset/weather.GIF" height="50%" width="50%"><p>

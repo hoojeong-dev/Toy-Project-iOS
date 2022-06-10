@@ -67,7 +67,7 @@ self.present(alert, animated: true, completion: nil)
 
 ## *Demo*
 
-<p align="center"><img src="./asset/toDoList.GIF" height="500px" width="250px"><p>
+<p align="center"><img src="./asset/toDoList.GIF" height="50%" width="50%"><p>
 
 ---
 

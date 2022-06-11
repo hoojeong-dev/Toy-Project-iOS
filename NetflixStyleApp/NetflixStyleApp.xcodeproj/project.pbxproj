@@ -18,6 +18,8 @@
 		5512A1292857119A00593A69 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512A1282857119A00593A69 /* ContentCollectionViewCell.swift */; };
 		5512A12B2857146E00593A69 /* ContentCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5512A12A2857146E00593A69 /* ContentCollectionViewHeader.swift */; };
 		55D2365F2857307E00D38FC4 /* ContentCollectionViewRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2365E2857307E00D38FC4 /* ContentCollectionViewRankCell.swift */; };
+		55D23661285736A400D38FC4 /* ContentCollectionViewMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D23660285736A400D38FC4 /* ContentCollectionViewMainCell.swift */; };
+		55D2366328573D3600D38FC4 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2366228573D3600D38FC4 /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		5512A1282857119A00593A69 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
 		5512A12A2857146E00593A69 /* ContentCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewHeader.swift; sourceTree = "<group>"; };
 		55D2365E2857307E00D38FC4 /* ContentCollectionViewRankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewRankCell.swift; sourceTree = "<group>"; };
+		55D23660285736A400D38FC4 /* ContentCollectionViewMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewMainCell.swift; sourceTree = "<group>"; };
+		55D2366228573D3600D38FC4 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		66EF3E71DA270EF215340C68 /* Pods-NetflixStyleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixStyleApp.debug.xcconfig"; path = "Target Support Files/Pods-NetflixStyleApp/Pods-NetflixStyleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		69BA7469CC060F6E40855518 /* Pods-NefliexStyleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NefliexStyleApp.debug.xcconfig"; path = "Target Support Files/Pods-NefliexStyleApp/Pods-NefliexStyleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		70B4CEDF3A50001BD8D824DC /* Pods-NetflixStyleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixStyleApp.release.xcconfig"; path = "Target Support Files/Pods-NetflixStyleApp/Pods-NetflixStyleApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				5512A1282857119A00593A69 /* ContentCollectionViewCell.swift */,
 				5512A12A2857146E00593A69 /* ContentCollectionViewHeader.swift */,
 				55D2365E2857307E00D38FC4 /* ContentCollectionViewRankCell.swift */,
+				55D23660285736A400D38FC4 /* ContentCollectionViewMainCell.swift */,
+				55D2366228573D3600D38FC4 /* UIButton.swift */,
 			);
 			path = NetflixStyleApp;
 			sourceTree = "<group>";
@@ -227,8 +233,10 @@
 				5512A1112856FC5600593A69 /* SceneDelegate.swift in Sources */,
 				55D2365F2857307E00D38FC4 /* ContentCollectionViewRankCell.swift in Sources */,
 				5512A1232856FCFD00593A69 /* HomeViewController.swift in Sources */,
+				55D23661285736A400D38FC4 /* ContentCollectionViewMainCell.swift in Sources */,
 				5512A12728570DB700593A69 /* Content.swift in Sources */,
 				5512A1292857119A00593A69 /* ContentCollectionViewCell.swift in Sources */,
+				55D2366328573D3600D38FC4 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

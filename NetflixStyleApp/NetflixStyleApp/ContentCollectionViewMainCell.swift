@@ -47,17 +47,7 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
         descriptionLabel.sizeToFit()
         
         //ContentStackView
-        contentStackView.axis = .horizontal
-        contentStackView.alignment = .center
-        contentStackView.distribution = .equalSpacing
-        contentStackView.spacing = 20
-        
-        contentStackView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(30)
-        }
-        
         [plusButton, infoButton].forEach {
-            contentStackView.addArrangedSubview(playButton)
             $0.titleLabel?.font = .systemFont(ofSize: 13)
             $0.setTitleColor(.white, for: .normal)
             $0.imageView?.tintColor = .white
@@ -72,7 +62,7 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
         infoButton.setImage(UIImage(systemName: "info.circle"), for: .normal)
         infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
         
-        playButton.setTitle("재생", for: .normal)
+        playButton.setTitle("▶︎ 재생", for: .normal)
         playButton.setTitleColor(.black, for: .normal)
         playButton.backgroundColor = .white
         playButton.layer.cornerRadius = 3
@@ -81,6 +71,21 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
             $0.height.equalTo(30)
         }
         playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        
+        [plusButton, playButton, infoButton].forEach {
+            contentStackView.addArrangedSubview($0)
+        }
+    
+        contentStackView.axis = .horizontal
+        contentStackView.alignment = .center
+        contentStackView.distribution = .equalSpacing
+        contentStackView.spacing = 20
+        
+        contentStackView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(30)
+            $0.height.equalTo(60)
+        }
+        
         
         //baseStackView
         baseStackView.axis = .vertical
@@ -91,6 +96,7 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
         
+    
         //menuStackView
         menuStackView.axis = .horizontal
         menuStackView.alignment = .center

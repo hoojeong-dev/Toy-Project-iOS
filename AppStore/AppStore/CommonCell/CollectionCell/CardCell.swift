@@ -22,27 +22,28 @@ class CardCell: UICollectionViewCell {
     }
     
     private func configureCell() {
-        tvTag.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        
+        tvTag.font = UIFont.systemFont(ofSize: 11, weight: .semibold)
         tvTag.textColor = .systemBlue
         
         tvTitle.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         tvTitle.textColor = .black
         
-        tvDescription.font = UIFont.systemFont(ofSize: 10, weight: .regular)
-        tvDescription.text = "dmdkldkdkdkkddkkdkd"
-        tvDescription.textColor = .black
+        tvDescription.font = UIFont.systemFont(ofSize: 19, weight: .regular)
+        tvDescription.textColor = .gray
         
+        ivBack.backgroundColor = .green
         ivBack.layer.cornerRadius = 4
         
         appView.layer.cornerRadius = 4
         
         ivAppIcon.layer.cornerRadius = 8
         
-        tvAppTitle.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        tvAppTitle.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         tvAppTitle.textColor = .black
         
         tvAppProduce.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        tvAppProduce.textColor = .lightGray
+        tvAppProduce.textColor = .black
         
         btnDownload.layer.cornerRadius = 16
         btnDownload.backgroundColor = .systemGray
@@ -52,7 +53,7 @@ class CardCell: UICollectionViewCell {
         
         tvDownloadDescription.text = "앱 내 구입"
         tvDownloadDescription.font = UIFont.systemFont(ofSize: 9, weight: .regular)
-        tvDownloadDescription.textColor = .lightGray
+        tvDownloadDescription.textColor = .black
     }
 
     func setCell(card: Card) {

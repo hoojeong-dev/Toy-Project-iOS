@@ -1,16 +1,19 @@
 import UIKit
 
-class GameViewController: UIViewController {
+enum Section {
+    case card
+    case smallList
+}
 
-    @IBOutlet weak var customNavigationBar: UIView!
-    @IBOutlet weak var tvNavigationBarTitle: UILabel!
-    @IBOutlet weak var btnProfile: UIButton!
+class GameViewController: UIViewController {
     
+    @IBOutlet weak var btnProfile: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
-    var lastContentOffSet: CGFloat = 0.0
+    let cardList: [Card] = CardList().cardList
+    let gameList: [Game] = GameList().gameList
     
-    var data = AppStore()
+    var data = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,48 +23,53 @@ class GameViewController: UIViewController {
     
     private func setView() {
         
-        //let panGestureRecongnizer = UIPanGestureRecognizer(target: self, action: #selector(panAction(_ :)))
-        //panGestureRecongnizer.delegate = self
-        //self.view.addGestureRecognizer(panGestureRecongnizer)
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.topItem?.title = "게임"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
-        navigationItem.title = "게임"
-        navigationController?.isNavigationBarHidden = true
-        
-        tvNavigationBarTitle.text = "게임"
-        tvNavigationBarTitle.textColor = .black
-        tvNavigationBarTitle.font = UIFont.systemFont(ofSize: 32, weight: .bold)
-        
+        /*
         btnProfile.backgroundColor = .blue
         btnProfile.layer.cornerRadius = 18
+         */
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CardTableCell", bundle: nil), forCellReuseIdentifier: "CardTableCell")
-    }
-    
-    @objc func panAction (_ sender : UIPanGestureRecognizer){
-        let velocity = sender.velocity(in: tableView)
-        
-        if velocity.y < 0 {
-            print("ssssss")
-            self.navigationController?.isNavigationBarHidden = false
-            self.customNavigationBar.isHidden = true
-        }
-        //else {
-            //self.navigationController?.isNavigationBarHidden = true
-            //self.customNavigationBar.isHidden = false
-        //}
+        tableView.register(UINib(nibName: "SmallListTableCell", bundle: nil), forCellReuseIdentifier: "SmallListTableCell")
     }
 }
 
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+        /*
+        switch section {
+        case 0:
+            return cardList.count
+        case 1:
+            return gameList.count
+        default:
+            return 0
+        }*/
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CardTableCell", for: indexPath) as? CardTableCell else { return UITableViewCell() }
+        var cell = UITableViewCell()
+        
+        switch indexPath.section {
+        case 0:
+            cell = tableView.dequeueReusableCell(withIdentifier: "CardTableCell", for: indexPath)
+        case 1:
+            cell = tableView.dequeueReusableCell(withIdentifier: "SmallListTableCell", for: indexPath)
+        default:
+            return cell
+            
+        }
         
         cell.backgroundColor = .clear
         
@@ -69,7 +77,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 280
+        return 325
     }
 }
 
@@ -77,22 +85,5 @@ extension GameViewController: UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool{
         return true
-    }
-}
-
-extension GameViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-        if self.lastContentOffSet <= 0 || self.lastContentOffSet > scrollView.contentOffset.y {
-            self.navigationController?.isNavigationBarHidden = false
-            self.customNavigationBar.isHidden = true
-        }
-        else if self.lastContentOffSet < scrollView.contentOffset.y {
-            self.navigationController?.isNavigationBarHidden = true
-            self.customNavigationBar.isHidden = false
-        }
-        
-        self.lastContentOffSet = scrollView.contentOffset.y
     }
 }

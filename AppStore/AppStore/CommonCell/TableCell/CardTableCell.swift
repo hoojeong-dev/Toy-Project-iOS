@@ -4,7 +4,7 @@ class CardTableCell: UITableViewCell {
 
     @IBOutlet weak var collevtionView: UICollectionView!
     
-    var data = AppStore()
+    var data = CardList().cardList
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,25 +21,31 @@ class CardTableCell: UITableViewCell {
         collevtionView.delegate = self
         collevtionView.dataSource = self
         collevtionView.register(UINib(nibName: "CardCell", bundle: nil), forCellWithReuseIdentifier: "CardCell")
+        collevtionView.showsHorizontalScrollIndicator = false
+        
     }
 }
 
 extension CardTableCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return data.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as? CardCell else { return UICollectionViewCell() }
         
-        cell.setCell(card: data.dataList[indexPath.section][indexPath.row])
+        cell.setCell(card: data[indexPath.row])
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width) - 60, height: 264)
+        return CGSize(width: (UIScreen.main.bounds.width) - 40, height: 310)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -47,6 +53,6 @@ extension CardTableCell: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return .zero
+        return 32
     }
 }

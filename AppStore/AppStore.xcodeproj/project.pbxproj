@@ -35,6 +35,9 @@
 		55F32BA0286562D7006449D6 /* CardTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F32B9E286562D7006449D6 /* CardTableCell.xib */; };
 		55F32BA628658E43006449D6 /* SmallListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F32BA428658E43006449D6 /* SmallListTableCell.swift */; };
 		55F32BA728658E43006449D6 /* SmallListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F32BA528658E43006449D6 /* SmallListTableCell.xib */; };
+		55F32BAC2865AEF2006449D6 /* SmallListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F32BAA2865AEF2006449D6 /* SmallListHeader.swift */; };
+		55F32BAD2865AEF2006449D6 /* SmallListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F32BAB2865AEF2006449D6 /* SmallListHeader.xib */; };
+		55F32BAF2865B21E006449D6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F32BAE2865B21E006449D6 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		55F32B9E286562D7006449D6 /* CardTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableCell.xib; sourceTree = "<group>"; };
 		55F32BA428658E43006449D6 /* SmallListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallListTableCell.swift; sourceTree = "<group>"; };
 		55F32BA528658E43006449D6 /* SmallListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallListTableCell.xib; sourceTree = "<group>"; };
+		55F32BAA2865AEF2006449D6 /* SmallListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallListHeader.swift; sourceTree = "<group>"; };
+		55F32BAB2865AEF2006449D6 /* SmallListHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallListHeader.xib; sourceTree = "<group>"; };
+		55F32BAE2865B21E006449D6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,7 @@
 			children = (
 				55B80C72286443E900C134FD /* Card.swift */,
 				55B80C762864479C00C134FD /* AppStore.swift */,
+				55F32BAE2865B21E006449D6 /* Game.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 				558B0C6628640184007D9AED /* Search */,
 				55B80C71286443D400C134FD /* Model */,
 				558B0C7C28643949007D9AED /* CommonCell */,
+				55F32BA82865AE42006449D6 /* CommonHeader */,
 			);
 			path = AppStore;
 			sourceTree = "<group>";
@@ -211,6 +219,23 @@
 				55B80C7F286448C000C134FD /* BigListCell.xib */,
 			);
 			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		55F32BA82865AE42006449D6 /* CommonHeader */ = {
+			isa = PBXGroup;
+			children = (
+				55F32BA92865AE66006449D6 /* SmallListHeader */,
+			);
+			path = CommonHeader;
+			sourceTree = "<group>";
+		};
+		55F32BA92865AE66006449D6 /* SmallListHeader */ = {
+			isa = PBXGroup;
+			children = (
+				55F32BAA2865AEF2006449D6 /* SmallListHeader.swift */,
+				55F32BAB2865AEF2006449D6 /* SmallListHeader.xib */,
+			);
+			path = SmallListHeader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +300,7 @@
 				558B0C76286404E8007D9AED /* TabBar.storyboard in Resources */,
 				55F32BA728658E43006449D6 /* SmallListTableCell.xib in Resources */,
 				558B0C68286401D5007D9AED /* Today.storyboard in Resources */,
+				55F32BAD2865AEF2006449D6 /* SmallListHeader.xib in Resources */,
 				55B80C7D286448B100C134FD /* SmallListCell.xib in Resources */,
 				55F32BA0286562D7006449D6 /* CardTableCell.xib in Resources */,
 				558B0C6C28640232007D9AED /* App.storyboard in Resources */,
@@ -308,6 +334,8 @@
 				55B80C73286443E900C134FD /* Card.swift in Sources */,
 				55D4B7302863FCBD00221980 /* TodayViewController.swift in Sources */,
 				558B0C8328643B7B007D9AED /* CardCell.swift in Sources */,
+				55F32BAF2865B21E006449D6 /* Game.swift in Sources */,
+				55F32BAC2865AEF2006449D6 /* SmallListHeader.swift in Sources */,
 				55B80C7C286448B100C134FD /* SmallListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

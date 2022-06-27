@@ -7,6 +7,7 @@ class BigListTableCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var data = GameList().gameList
+    var currentIndex: CGFloat = 0.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,8 +35,29 @@ class BigListTableCell: UITableViewCell {
         collectionView.register(UINib(nibName: "BigListCell", bundle: nil), forCellWithReuseIdentifier: "BigListCell")
         
         collectionView.isScrollEnabled = true
-        collectionView.isPagingEnabled = true
+        collectionView.isPagingEnabled = false
+        collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if let collectionView = scrollView as? UICollectionView {
+            let cellWidth = (UIScreen.main.bounds.width) - 32
+            
+            var offset = targetContentOffset.pointee
+            let index = round((offset.x + collectionView.contentInset.left) / cellWidth)
+            
+            if index > currentIndex {
+                currentIndex += 1
+            } else if index < currentIndex {
+                currentIndex -= 1
+            }
+            
+            offset = CGPoint(x: currentIndex * cellWidth - collectionView.contentInset.left, y: 0)
+            
+            targetContentOffset.pointee = offset
+        }
     }
 }
 

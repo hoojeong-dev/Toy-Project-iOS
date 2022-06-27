@@ -5,6 +5,7 @@ class CardTableCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var data = CardList().cardList
+    var currentIndex: CGFloat = 0.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,9 +24,29 @@ class CardTableCell: UITableViewCell {
         collectionView.register(UINib(nibName: "CardCell", bundle: nil), forCellWithReuseIdentifier: "CardCell")
         
         collectionView.isScrollEnabled = true
-        collectionView.isPagingEnabled = true
+        collectionView.isPagingEnabled = false
+        collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
+        if let collectionView = scrollView as? UICollectionView {
+            let cellWidth = (UIScreen.main.bounds.width) - 32
+            
+            var offset = targetContentOffset.pointee
+            let index = round((offset.x + collectionView.contentInset.left) / cellWidth)
+            
+            if index > currentIndex {
+                currentIndex += 1
+            } else if index < currentIndex {
+                currentIndex -= 1
+            }
+            
+            offset = CGPoint(x: currentIndex * cellWidth - collectionView.contentInset.left, y: 0)
+            
+            targetContentOffset.pointee = offset
+        }
     }
 }
 
@@ -44,10 +65,10 @@ extension CardTableCell: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width) - 35, height: 310)
+        return CGSize(width: (UIScreen.main.bounds.width) - 32, height: CardCell.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 16, left: 16, bottom: 18, right: 16)
+        return UIEdgeInsets(top: 16, left: 16, bottom: 18, right: 12)
     }
 }

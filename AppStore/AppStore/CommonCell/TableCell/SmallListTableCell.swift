@@ -7,6 +7,7 @@ class SmallListTableCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var data = GameList().gameList
+    var currentIndex: CGFloat = 0.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,8 +34,29 @@ class SmallListTableCell: UITableViewCell {
         collectionView.register(UINib(nibName: "SmallListCell", bundle: nil), forCellWithReuseIdentifier: "SmallListCell")
         
         collectionView.isScrollEnabled = true
-        collectionView.isPagingEnabled = true
+        collectionView.isPagingEnabled = false
+        collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if let collectionView = scrollView as? UICollectionView {
+            let cellWidth = (UIScreen.main.bounds.width) - 32
+            
+            var offset = targetContentOffset.pointee
+            let index = round((offset.x + collectionView.contentInset.left) / cellWidth)
+            
+            if index > currentIndex {
+                currentIndex += 1
+            } else if index < currentIndex {
+                currentIndex -= 1
+            }
+            
+            offset = CGPoint(x: currentIndex * cellWidth - collectionView.contentInset.left, y: 0)
+            
+            targetContentOffset.pointee = offset
+        }
     }
 }
 
@@ -53,11 +75,11 @@ extension SmallListTableCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width), height: SmallListCell.height)
+        return CGSize(width: (UIScreen.main.bounds.width) - 32, height: SmallListCell.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16)
+        return UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 8)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygn-od-WkB">
-                        <rect key="frame" x="313" y="16" width="80" height="31"/>
+                        <rect key="frame" x="321" y="16" width="80" height="31"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="nya-X5-19Q"/>
                         </constraints>
@@ -48,7 +48,7 @@
                     <constraint firstItem="cnA-og-JjQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Dev-nY-G7y"/>
                     <constraint firstAttribute="trailing" secondItem="cnA-og-JjQ" secondAttribute="trailing" constant="16" id="HgA-Zl-1Pv"/>
                     <constraint firstItem="gzn-tf-EA4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="O77-1V-mq7"/>
-                    <constraint firstAttribute="trailing" secondItem="Ygn-od-WkB" secondAttribute="trailing" constant="16" id="Rw9-2J-sCw"/>
+                    <constraint firstAttribute="trailing" secondItem="Ygn-od-WkB" secondAttribute="trailing" constant="8" id="Rw9-2J-sCw"/>
                     <constraint firstAttribute="bottom" secondItem="gzn-tf-EA4" secondAttribute="bottom" id="aVT-A2-pP2"/>
                     <constraint firstItem="Ygn-od-WkB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="fXr-dC-wUF"/>
                     <constraint firstItem="Ygn-od-WkB" firstAttribute="height" secondItem="cnA-og-JjQ" secondAttribute="height" multiplier="1.47619" id="mog-l6-f8d"/>

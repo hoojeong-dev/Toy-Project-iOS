@@ -15,6 +15,8 @@ class CardCell: UICollectionViewCell {
     @IBOutlet weak var btnDownload: UIButton!
     @IBOutlet weak var tvDownloadDescription: UILabel!
     
+    static var height: CGFloat { 310.0 }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     

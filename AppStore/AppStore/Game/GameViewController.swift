@@ -84,7 +84,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            return 345
+            return CardCell.height
         case 1:
             return SmallListCell.height * 4 + 5
         case 2:

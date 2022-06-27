@@ -1,6 +1,6 @@
 import UIKit
 
-class SmallListTableCell: UITableViewCell {
+class BigListTableCell: UITableViewCell {
 
     @IBOutlet weak var tvTitle: UILabel!
     @IBOutlet weak var btnAll: UIButton!
@@ -17,6 +17,7 @@ class SmallListTableCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
     }
     
     private func configureHeader() {
@@ -30,7 +31,7 @@ class SmallListTableCell: UITableViewCell {
     private func configureCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "SmallListCell", bundle: nil), forCellWithReuseIdentifier: "SmallListCell")
+        collectionView.register(UINib(nibName: "BigListCell", bundle: nil), forCellWithReuseIdentifier: "BigListCell")
         
         collectionView.isScrollEnabled = true
         collectionView.isPagingEnabled = true
@@ -38,14 +39,14 @@ class SmallListTableCell: UITableViewCell {
     }
 }
 
-extension SmallListTableCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension BigListTableCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SmallListCell", for: indexPath) as? SmallListCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BigListCell", for: indexPath) as? BigListCell else { return UICollectionViewCell() }
         
         cell.setCell(game: data[indexPath.row])
         
@@ -53,7 +54,7 @@ extension SmallListTableCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width), height: SmallListCell.height)
+        return CGSize(width: (UIScreen.main.bounds.width) - 32, height: BigListCell.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

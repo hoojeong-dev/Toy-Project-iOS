@@ -2,14 +2,14 @@ import UIKit
 
 class CardTableCell: UITableViewCell {
 
-    @IBOutlet weak var collevtionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var data = CardList().cardList
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setCollectionView()
+        configureCollectionView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -17,11 +17,14 @@ class CardTableCell: UITableViewCell {
 
     }
     
-    private func setCollectionView() {
-        collevtionView.delegate = self
-        collevtionView.dataSource = self
-        collevtionView.register(UINib(nibName: "CardCell", bundle: nil), forCellWithReuseIdentifier: "CardCell")
-        collevtionView.showsHorizontalScrollIndicator = false
+    private func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "CardCell", bundle: nil), forCellWithReuseIdentifier: "CardCell")
+        
+        collectionView.isScrollEnabled = true
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
         
     }
 }
@@ -41,18 +44,10 @@ extension CardTableCell: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width) - 40, height: 310)
+        return CGSize(width: (UIScreen.main.bounds.width) - 35, height: 310)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 32
+        return UIEdgeInsets(top: 16, left: 16, bottom: 18, right: 16)
     }
 }

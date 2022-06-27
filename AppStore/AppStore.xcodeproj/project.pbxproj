@@ -18,6 +18,8 @@
 		558B0C7828640545007D9AED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B0C7728640545007D9AED /* TabBarViewController.swift */; };
 		558B0C8328643B7B007D9AED /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B0C8128643B7B007D9AED /* CardCell.swift */; };
 		558B0C8428643B7B007D9AED /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B0C8228643B7B007D9AED /* CardCell.xib */; };
+		55ABF6902869716E00AE14E7 /* BigListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ABF68E2869716E00AE14E7 /* BigListTableCell.swift */; };
+		55ABF6912869716E00AE14E7 /* BigListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55ABF68F2869716E00AE14E7 /* BigListTableCell.xib */; };
 		55B80C73286443E900C134FD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B80C72286443E900C134FD /* Card.swift */; };
 		55B80C772864479C00C134FD /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B80C762864479C00C134FD /* AppStore.swift */; };
 		55B80C7C286448B100C134FD /* SmallListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B80C7A286448B100C134FD /* SmallListCell.swift */; };
@@ -35,8 +37,6 @@
 		55F32BA0286562D7006449D6 /* CardTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F32B9E286562D7006449D6 /* CardTableCell.xib */; };
 		55F32BA628658E43006449D6 /* SmallListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F32BA428658E43006449D6 /* SmallListTableCell.swift */; };
 		55F32BA728658E43006449D6 /* SmallListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F32BA528658E43006449D6 /* SmallListTableCell.xib */; };
-		55F32BAC2865AEF2006449D6 /* SmallListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F32BAA2865AEF2006449D6 /* SmallListHeader.swift */; };
-		55F32BAD2865AEF2006449D6 /* SmallListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F32BAB2865AEF2006449D6 /* SmallListHeader.xib */; };
 		55F32BAF2865B21E006449D6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F32BAE2865B21E006449D6 /* Game.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +52,8 @@
 		558B0C7728640545007D9AED /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		558B0C8128643B7B007D9AED /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		558B0C8228643B7B007D9AED /* CardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
+		55ABF68E2869716E00AE14E7 /* BigListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigListTableCell.swift; sourceTree = "<group>"; };
+		55ABF68F2869716E00AE14E7 /* BigListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigListTableCell.xib; sourceTree = "<group>"; };
 		55B80C72286443E900C134FD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		55B80C762864479C00C134FD /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		55B80C7A286448B100C134FD /* SmallListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallListCell.swift; sourceTree = "<group>"; };
@@ -71,8 +73,6 @@
 		55F32B9E286562D7006449D6 /* CardTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableCell.xib; sourceTree = "<group>"; };
 		55F32BA428658E43006449D6 /* SmallListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallListTableCell.swift; sourceTree = "<group>"; };
 		55F32BA528658E43006449D6 /* SmallListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallListTableCell.xib; sourceTree = "<group>"; };
-		55F32BAA2865AEF2006449D6 /* SmallListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallListHeader.swift; sourceTree = "<group>"; };
-		55F32BAB2865AEF2006449D6 /* SmallListHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallListHeader.xib; sourceTree = "<group>"; };
 		55F32BAE2865B21E006449D6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,10 +200,12 @@
 		55F32BA228656347006449D6 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
-				55F32B9E286562D7006449D6 /* CardTableCell.xib */,
 				55F32B9D286562D7006449D6 /* CardTableCell.swift */,
+				55F32B9E286562D7006449D6 /* CardTableCell.xib */,
 				55F32BA428658E43006449D6 /* SmallListTableCell.swift */,
 				55F32BA528658E43006449D6 /* SmallListTableCell.xib */,
+				55ABF68E2869716E00AE14E7 /* BigListTableCell.swift */,
+				55ABF68F2869716E00AE14E7 /* BigListTableCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -232,8 +234,6 @@
 		55F32BA92865AE66006449D6 /* SmallListHeader */ = {
 			isa = PBXGroup;
 			children = (
-				55F32BAA2865AEF2006449D6 /* SmallListHeader.swift */,
-				55F32BAB2865AEF2006449D6 /* SmallListHeader.xib */,
 			);
 			path = SmallListHeader;
 			sourceTree = "<group>";
@@ -300,12 +300,12 @@
 				558B0C76286404E8007D9AED /* TabBar.storyboard in Resources */,
 				55F32BA728658E43006449D6 /* SmallListTableCell.xib in Resources */,
 				558B0C68286401D5007D9AED /* Today.storyboard in Resources */,
-				55F32BAD2865AEF2006449D6 /* SmallListHeader.xib in Resources */,
 				55B80C7D286448B100C134FD /* SmallListCell.xib in Resources */,
 				55F32BA0286562D7006449D6 /* CardTableCell.xib in Resources */,
 				558B0C6C28640232007D9AED /* App.storyboard in Resources */,
 				55D4B7282863FCA500221980 /* LaunchScreen.storyboard in Resources */,
 				55D4B7252863FCA500221980 /* Assets.xcassets in Resources */,
+				55ABF6912869716E00AE14E7 /* BigListTableCell.xib in Resources */,
 				558B0C742864029F007D9AED /* Search.storyboard in Resources */,
 				558B0C8428643B7B007D9AED /* CardCell.xib in Resources */,
 				55B80C81286448C000C134FD /* BigListCell.xib in Resources */,
@@ -320,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55ABF6902869716E00AE14E7 /* BigListTableCell.swift in Sources */,
 				55B80C772864479C00C134FD /* AppStore.swift in Sources */,
 				558B0C7828640545007D9AED /* TabBarViewController.swift in Sources */,
 				558B0C6A28640224007D9AED /* AppViewController.swift in Sources */,
@@ -335,7 +336,6 @@
 				55D4B7302863FCBD00221980 /* TodayViewController.swift in Sources */,
 				558B0C8328643B7B007D9AED /* CardCell.swift in Sources */,
 				55F32BAF2865B21E006449D6 /* Game.swift in Sources */,
-				55F32BAC2865AEF2006449D6 /* SmallListHeader.swift in Sources */,
 				55B80C7C286448B100C134FD /* SmallListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

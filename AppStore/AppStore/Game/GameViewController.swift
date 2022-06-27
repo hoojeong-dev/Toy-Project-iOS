@@ -36,13 +36,14 @@ class GameViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CardTableCell", bundle: nil), forCellReuseIdentifier: "CardTableCell")
         tableView.register(UINib(nibName: "SmallListTableCell", bundle: nil), forCellReuseIdentifier: "SmallListTableCell")
+        tableView.register(UINib(nibName: "BigListTableCell", bundle: nil), forCellReuseIdentifier: "BigListTableCell")
     }
 }
 
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,18 +67,31 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: "CardTableCell", for: indexPath)
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: "SmallListTableCell", for: indexPath)
+        case 2:
+            cell = tableView.dequeueReusableCell(withIdentifier: "BigListTableCell", for: indexPath)
         default:
             return cell
             
         }
         
+        cell.selectionStyle = .none
         cell.backgroundColor = .clear
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 325
+        
+        switch indexPath.section {
+        case 0:
+            return 345
+        case 1:
+            return SmallListCell.height * 4 + 5
+        case 2:
+            return SmallListCell.height * 4
+        default:
+            return 0
+        }
     }
 }
 

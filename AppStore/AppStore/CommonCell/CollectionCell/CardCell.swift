@@ -27,7 +27,7 @@ class CardCell: UICollectionViewCell {
         tvTag.textColor = .systemBlue
         
         tvTitle.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        tvTitle.textColor = .black
+        //tvTitle.textColor = .default
         
         tvDescription.font = UIFont.systemFont(ofSize: 19, weight: .regular)
         tvDescription.textColor = .gray
@@ -40,10 +40,10 @@ class CardCell: UICollectionViewCell {
         ivAppIcon.layer.cornerRadius = 8
         
         tvAppTitle.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        tvAppTitle.textColor = .black
+        //tvAppTitle.textColor = .black
         
         tvAppProduce.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        tvAppProduce.textColor = .black
+        //tvAppProduce.textColor = .black
         
         btnDownload.layer.cornerRadius = 16
         btnDownload.backgroundColor = .systemGray
@@ -53,7 +53,9 @@ class CardCell: UICollectionViewCell {
         
         tvDownloadDescription.text = "앱 내 구입"
         tvDownloadDescription.font = UIFont.systemFont(ofSize: 9, weight: .regular)
-        tvDownloadDescription.textColor = .black
+        //tvDownloadDescription.textColor = .black
+        
+        //if view?.backgroundColor == UIColor(named: .black)
     }
 
     func setCell(card: Card) {

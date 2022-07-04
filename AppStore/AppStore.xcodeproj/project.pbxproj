@@ -192,7 +192,6 @@
 				558B0C6628640184007D9AED /* Search */,
 				55B80C71286443D400C134FD /* Model */,
 				558B0C7C28643949007D9AED /* CommonCell */,
-				55F32BA82865AE42006449D6 /* CommonHeader */,
 			);
 			path = AppStore;
 			sourceTree = "<group>";
@@ -221,21 +220,6 @@
 				55B80C7F286448C000C134FD /* BigListCell.xib */,
 			);
 			path = CollectionCell;
-			sourceTree = "<group>";
-		};
-		55F32BA82865AE42006449D6 /* CommonHeader */ = {
-			isa = PBXGroup;
-			children = (
-				55F32BA92865AE66006449D6 /* SmallListHeader */,
-			);
-			path = CommonHeader;
-			sourceTree = "<group>";
-		};
-		55F32BA92865AE66006449D6 /* SmallListHeader */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SmallListHeader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

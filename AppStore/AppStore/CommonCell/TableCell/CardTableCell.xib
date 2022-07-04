@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VXi-6I-T8z">
-                        <rect key="frame" x="0.0" y="0.0" width="433" height="206"/>
+                        <rect key="frame" x="0.0" y="5" width="433" height="201"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n9E-ON-2pJ">
                             <size key="itemSize" width="128" height="128"/>
@@ -30,7 +30,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="VXi-6I-T8z" secondAttribute="trailing" id="abN-gX-sIs"/>
-                    <constraint firstItem="VXi-6I-T8z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oUg-R9-NU6"/>
+                    <constraint firstItem="VXi-6I-T8z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="oUg-R9-NU6"/>
                     <constraint firstItem="VXi-6I-T8z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sPI-RD-hOM"/>
                     <constraint firstAttribute="bottom" secondItem="VXi-6I-T8z" secondAttribute="bottom" id="vs5-hg-EbQ"/>
                 </constraints>

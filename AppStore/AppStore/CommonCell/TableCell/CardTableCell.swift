@@ -32,7 +32,7 @@ class CardTableCell: UITableViewCell {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         if let collectionView = scrollView as? UICollectionView {
-            let cellWidth = (UIScreen.main.bounds.width) - 32
+            let cellWidth = (UIScreen.main.bounds.width) - 22
             
             var offset = targetContentOffset.pointee
             let index = round((offset.x + collectionView.contentInset.left) / cellWidth)
@@ -69,6 +69,6 @@ extension CardTableCell: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 16, left: 16, bottom: 18, right: 12)
+        return UIEdgeInsets(top: 16, left: 16, bottom: 18, right: 16)
     }
 }

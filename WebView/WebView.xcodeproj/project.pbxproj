@@ -14,6 +14,7 @@
 		55574572287406AF00059E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55574571287406AF00059E42 /* Assets.xcassets */; };
 		55574575287406AF00059E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55574573287406AF00059E42 /* LaunchScreen.storyboard */; };
 		5557457D2874086B00059E42 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557457C2874086B00059E42 /* WebViewController.swift */; };
+		555745802874167E00059E42 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557457F2874167E00059E42 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		55574574287406AF00059E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55574576287406AF00059E42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5557457C2874086B00059E42 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		5557457F2874167E00059E42 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555745802874167E00059E42 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 			children = (
 				55574567287406AF00059E42 /* WebView */,
 				55574566287406AF00059E42 /* Products */,
+				5557457E2874167E00059E42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +72,14 @@
 				5557457C2874086B00059E42 /* WebViewController.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		5557457E2874167E00059E42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5557457F2874167E00059E42 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

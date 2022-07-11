@@ -9,7 +9,11 @@ class ViewController: UIViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
+    /** 웹 뷰로 이동 */
     @IBAction func tappedSearch(_ sender: Any) {
         let text: String = tvSearch.text!
         
@@ -20,7 +24,7 @@ class ViewController: UIViewController {
                 let viewController = storyBoard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
                 
                 viewController.search = text
-                viewController.url = "https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=\(text)"
+                viewController.url = "https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&"
                 
                 navigationController.pushViewController(viewController, animated: true)
             }

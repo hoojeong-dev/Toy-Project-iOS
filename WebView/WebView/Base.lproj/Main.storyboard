@@ -32,18 +32,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="q3S-2t-u9u">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="q3S-2t-u9u">
                                 <rect key="frame" x="50" y="394.5" width="314" height="107"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZZ-Qx-gAo">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
+                                        <rect key="frame" x="7" y="0.0" width="300" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="iHR-Lo-ThT"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="253-2z-haN">
-                                        <rect key="frame" x="0.0" y="76" width="314" height="31"/>
+                                        <rect key="frame" x="82" y="76" width="150" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="vNi-jI-p0d"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Search"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Search"/>
                                         <connections>
                                             <action selector="tappedSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hNA-Ph-ylk"/>
                                         </connections>
@@ -77,22 +83,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4X-Bp-e2x">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2B-cT-Vqi">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mWh-q0-aJN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="mWh-q0-aJN" firstAttribute="trailing" secondItem="E4X-Bp-e2x" secondAttribute="trailing" id="4mj-Ka-pcX"/>
-                            <constraint firstItem="E4X-Bp-e2x" firstAttribute="top" secondItem="mWh-q0-aJN" secondAttribute="top" id="ASb-c1-RJj"/>
-                            <constraint firstItem="E4X-Bp-e2x" firstAttribute="leading" secondItem="mWh-q0-aJN" secondAttribute="leading" id="AXP-0R-nsC"/>
-                            <constraint firstItem="mWh-q0-aJN" firstAttribute="bottom" secondItem="E4X-Bp-e2x" secondAttribute="bottom" constant="-34" id="aN8-9o-gJU"/>
+                            <constraint firstItem="mWh-q0-aJN" firstAttribute="trailing" secondItem="Z2B-cT-Vqi" secondAttribute="trailing" id="ISL-CN-apH"/>
+                            <constraint firstAttribute="bottom" secondItem="Z2B-cT-Vqi" secondAttribute="bottom" id="ORJ-gp-1VG"/>
+                            <constraint firstItem="Z2B-cT-Vqi" firstAttribute="leading" secondItem="mWh-q0-aJN" secondAttribute="leading" id="cl4-ei-ZYi"/>
+                            <constraint firstItem="Z2B-cT-Vqi" firstAttribute="top" secondItem="mWh-q0-aJN" secondAttribute="top" id="xpL-Cb-Z6v"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="webViewGroup" destination="E4X-Bp-e2x" id="Hq8-Td-QZ9"/>
+                        <outlet property="webViewGroup" destination="Z2B-cT-Vqi" id="wA7-id-2UZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0UR-yT-sR5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

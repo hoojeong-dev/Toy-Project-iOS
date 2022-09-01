@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  GithubRepository
-//
-//  Created by 김후정 on 2022/09/01.
-//
-
 import UIKit
 
 @main

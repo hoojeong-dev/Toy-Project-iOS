@@ -29,7 +29,7 @@ class RepositoryViewController: UITableViewController {
 }
 
 
-extension RepositoryViewController: UITableViewDelegate, UITableViewDataSource {
+extension RepositoryViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
